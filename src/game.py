@@ -26,10 +26,8 @@ class Game:
         while True:
             self.screen.fill((14,219,248))
 
-            self.player.update((self.movement [1] - self.movemen[0]), (self.movement[3] - self.movement[2]))
-            self.render(self.screen, )
-
-            self.screen.blit(self.background, self.bg_pos)
+            self.player.update((self.movement [3] - self.movement[2], self.movement[1] - self.movement[0]))
+            self.player.render(self.screen)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:

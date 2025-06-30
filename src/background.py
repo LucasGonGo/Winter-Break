@@ -1,9 +1,11 @@
 import pygame
 
+from scripts.utils import load_image
+
 class Background:
     def __init__(self, screen):
         self.screen = screen
-        self.background = pygame.image.load('assets/images/test.png')
+        self.background = load_image('assets/images/test.png')
         bg_rect = self.background.get_rect(center=(self.screen.get_width() // 2, self.screen.get_height() // 2))
         self.bg_pos = bg_rect.topleft
 

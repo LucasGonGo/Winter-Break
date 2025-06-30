@@ -13,7 +13,7 @@ class Game:
         pygame.display.set_caption('Winter Break Project') # muda o nome na janela
         self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
         
-        self.background = Background(self.screen).background
+        self.background = Background(self.screen)
 
         self.clock = pygame.time.Clock()
 

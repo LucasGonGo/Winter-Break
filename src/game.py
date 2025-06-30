@@ -4,14 +4,17 @@ import sys
 
 from scripts.entities import PhysicsEntity
 from scripts.utils import load_image
+from background import Background
 
 class Game:
     def __init__(self):
         pygame.init()
 
         pygame.display.set_caption('Winter Break Project') # muda o nome na janela
-        self.screen = pygame.display.set_mode((1280, 720))
+        self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
         
+        self.background = Background(self.screen).background
+
         self.clock = pygame.time.Clock()
 
         self.movement = [False, False, False, False]
@@ -24,7 +27,7 @@ class Game:
 
     def run(self):
         while True:
-            self.screen.fill((14,219,248))
+            self.background.draw() # plota o background
 
             self.player.update((self.movement [3] - self.movement[2], self.movement[1] - self.movement[0]))
             self.player.render(self.screen)

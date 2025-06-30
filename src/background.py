@@ -15,3 +15,6 @@ class Background:
     def update(self):
         # pra fazer animaçãozinha de fundo gay
         pass
+
+    def get_rect(self):
+        return self.background.get_rect(topleft=self.bg_pos)

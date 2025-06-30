@@ -23,17 +23,18 @@ class Game:
             'player': load_image('entities/player.png')
         }
 
-        self.player = PhysicsEntity(self, 'player', (50, 50), (15, 15))
+        self.player = PhysicsEntity(self, 'player', (self.screen.get_width()//2 , self.screen.get_height()//2), (15, 15))
 
     def run(self):
         while True:
+            self.screen.fill((36,0,70))
             self.background.draw() # plota o background
 
             self.player.update((self.movement [3] - self.movement[2], self.movement[1] - self.movement[0]))
             self.player.render(self.screen)
 
             for event in pygame.event.get():
-                if event.type == pygame.QUIT:
+                if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
                     pygame.quit()
                     sys.exit()
 

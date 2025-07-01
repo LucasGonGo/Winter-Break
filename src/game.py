@@ -20,10 +20,10 @@ class Game:
         self.movement = [False, False, False, False]
 
         self.assets = {
-            'player': load_image('entities/player.png')
+            'player': load_image('entities/player.png', scale=(64,64))
         }
 
-        self.player = PhysicsEntity(self, 'player', (self.screen.get_width()//2 , self.screen.get_height()//2), (15, 15))
+        self.player = PhysicsEntity(self, 'player', (self.screen.get_width()//2 , self.screen.get_height()//2), (32, 32))
 
     def run(self):
         while True:

@@ -16,13 +16,18 @@ class PhysicsEntity:
         
         bg_rect = self.game.background.get_rect()
 
-        min_x = bg_rect.left
-        max_x = bg_rect.right - self.size[0]
-        min_y = bg_rect.top
-        max_y = bg_rect.bottom - self.size[1]
+        half_width = self.size[0] // 2
+        half_height = self.size[1] // 2
+
+        min_x = bg_rect.left + half_width
+        max_x = bg_rect.right - half_width
+        min_y = bg_rect.top + half_height
+        max_y = bg_rect.bottom - half_height
 
         self.pos[0] = max(min_x, min(new_x, max_x))
         self.pos[1] = max(min_y, min(new_y, max_y))
 
     def render(self, surf):
-        surf.blit(self.game.assets['player'], self.pos)
+        image = self.game.assets[self.type]
+        rect = image.get_rect(center=(int(self.pos[0]), int(self.pos[1])))
+        surf.blit(image, rect)

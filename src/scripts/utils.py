@@ -2,8 +2,7 @@ import pygame
 
 BASE_IMG_PATH = 'assets/images/'
 
-def load_image(path, scale=None):
+def load_image(path):
     img = pygame.image.load(BASE_IMG_PATH + path).convert_alpha()
-    if scale:
-        img = pygame.transform.scale(img, scale)
+    img.set_colorkey((0,0,0))
     return img
